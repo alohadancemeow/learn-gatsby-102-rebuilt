@@ -13,6 +13,7 @@ import { useGlobalStateContext, useGlobalDispatchContext } from '../context/glob
 // Create global style
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { normalize } from 'styled-normalize'
+import Navigation from "./Navigation"
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -79,6 +80,9 @@ const Layout = ({ children }) => {
     })
   }
 
+  // # Toggle state
+  const [toggleMenu, setToggleMenu] = useState(false)
+
 
   return (
     <ThemeProvider theme={
@@ -87,9 +91,22 @@ const Layout = ({ children }) => {
         : lightTheme
     }>
       <GlobalStyle />
-      <CustomCursor />
-      <Header onCursor={onCursor} />
+
+      <CustomCursor
+        toggleMenu={toggleMenu}
+      />
+      <Header
+        onCursor={onCursor}
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+      />
+      <Navigation
+        onCursor={onCursor}
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+      />
       <main>{children}</main>
+
     </ThemeProvider>
   )
 }
