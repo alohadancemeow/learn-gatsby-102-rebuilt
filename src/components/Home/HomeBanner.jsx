@@ -20,14 +20,14 @@ const HomeBanner = ({ onCursor }) => {
 
     // # Get theme
     const { currentTheme } = useGlobalStateContext()
-    console.log(currentTheme);
+    // console.log(currentTheme);
 
     // # Ref
     let canvas = useRef(null)
 
     // # Get window size
     const size = useWindowSize()
-    console.log(size);
+    // console.log(size);
 
 
     // ? : I don't know at all.
