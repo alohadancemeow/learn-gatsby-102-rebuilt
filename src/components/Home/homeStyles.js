@@ -128,7 +128,7 @@ export const FeaturedVideo = styled.div`
     overflow: hidden;
 `
 
-export const FeaturedProjects = styled.div`
+export const FeaturedProjects = styled(motion.div)`
     margin-top: 200px;
 
     button {

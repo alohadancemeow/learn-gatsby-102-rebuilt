@@ -72,8 +72,28 @@ const Navigation = ({ onCursor, toggleMenu, setToggleMenu }) => {
                                             onMouseLeave={onCursor}
                                         >
                                             <button>
-                                                <span></span>
-                                                <span></span>
+                                                <motion.span
+                                                    animate={{
+                                                        rotate: 45,
+                                                        x: 1,
+                                                        y: 5
+                                                    }}
+                                                    transition={{
+                                                        duration: 1.5,
+                                                        ease: ["easeInOut"]
+                                                    }}
+                                                ></motion.span>
+                                                <motion.span
+                                                    animate={{
+                                                        rotate: -45,
+                                                        x: 1,
+                                                        y: -10
+                                                    }}
+                                                    transition={{
+                                                        duration: 1.5,
+                                                        ease: ['easeInOut']
+                                                    }}
+                                                ></motion.span>
                                             </button>
                                         </CloseNav>
                                     </Flex>

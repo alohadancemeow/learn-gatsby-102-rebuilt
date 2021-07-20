@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import HomeAbout from "../components/Home/HomeAbout"
 import HomeBanner from "../components/Home/HomeBanner"
 import HomeContent from "../components/Home/HomeContent"
@@ -9,9 +9,12 @@ import { useGlobalStateContext, useGlobalDispatchContext } from '../context/glob
 
 const IndexPage = props => {
 
+  // # Toggle state
+  const [toggleMenu, setToggleMenu] = useState(false)
+
   // # Get context
   const dispatch = useGlobalDispatchContext()
-  const { currentTheme, cursorStyles } = useGlobalStateContext()
+  const { cursorStyles } = useGlobalStateContext()
 
   // # Handle cursor
   const onCursor = (cursorType) => {
@@ -24,10 +27,17 @@ const IndexPage = props => {
 
 
   return (
-    <Layout>
+    <Layout
+      toggleMenu={toggleMenu}
+      setToggleMenu={setToggleMenu}
+    >
       <HomeBanner onCursor={onCursor} />
       <HomeContent />
-      <HomeFeatured onCursor={onCursor} />
+      <HomeFeatured
+        onCursor={onCursor}
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+      />
       <HomeAbout onCursor={onCursor} />
     </Layout>
   )

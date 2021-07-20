@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -8,7 +8,6 @@ import CustomCursor from './CustomCursor'
 
 // Context
 import { useGlobalStateContext, useGlobalDispatchContext } from '../context/globalContext.js'
-
 
 // Create global style
 import { createGlobalStyle, ThemeProvider } from "styled-components"
@@ -39,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
 
 
 // # Layout
-const Layout = ({ children }) => {
+const Layout = ({ children, toggleMenu, setToggleMenu }) => {
 
   // # Grapql query
   const data = useStaticQuery(graphql`
@@ -79,9 +78,6 @@ const Layout = ({ children }) => {
       cursorType: cursorType
     })
   }
-
-  // # Toggle state
-  const [toggleMenu, setToggleMenu] = useState(false)
 
 
   return (
